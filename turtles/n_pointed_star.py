@@ -2,24 +2,31 @@
 
 import turtle
 
-def multiPointStar(t, n):
-    if n >= 5 and (n % 2 == 1):
+def multi_point_star(t, n):
+    if n == 5 and (n % 2 == 1):
         for i in range(n):
-            t.forward(150)
+            t.forward(250)
             t.left(180 + 360/(n * 2))
     elif n > 6 and n % 4 == 0:
+        t.fillcolor("red")
+        t.begin_fill()
         for i in range(n):
-            t.forward(150)
+            t.forward(250)
             t.left(180 + 360/n)
+        t.end_fill()
     else:
+        t.fillcolor("green")
+        t.begin_fill()
         for i in range(n):
-            t.forward(150)
+            t.forward(250)
             t.left(180 + 360/n * 2)
+        t.end_fill()
 leo = turtle.Turtle()
 leo.speed(0)
-
+leo.color("blue")
 wn = turtle.Screen()
-
-multiPointStar(leo, 15)
+wn.bgcolor("yellow")
+leo.goto(-125, 0)
+multi_point_star(leo, 5)
 
 wn.exitonclick()

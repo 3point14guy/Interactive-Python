@@ -5,24 +5,27 @@
 
 import turtle
 
-def drawSprite(t, legs, length):
+def draw_sprite(t, legs, length):
     for i in range(legs):
         t.forward(length)
         t.stamp()
         t.forward(-length)
         t.right(360/legs)
 
-def fancySquare(t, legs, length):
+def fancy_square(t, legs, sprite_length):
     for i in range(4):
+        t.width(3)
         t.forward(150)
         t.left(90)
-        drawSprite(t, legs, length)
+        t.width(1)
+        draw_sprite(t, legs, sprite_length)
 
 
 leo = turtle.Turtle()
 leo.speed(8)
+#leo.shape("circle")
 wn = turtle.Screen()
 
-fancySquare(leo, 10, 15)
+fancy_square(leo, 10, 25)
 
 wn.exitonclick()

@@ -2,29 +2,29 @@
 
 import turtle
 
-def drawSquare(t, sz):
-    """Get turtle t to draw a square of sz side"""
-    t.up()
-    t.goto(-130, 0)
-    t.down()
+def draw_square(t, length):
+    """Get turtle t to draw a square of length side"""
     for i in range(5):
         for i in range(4):
-            t.forward(sz)
+            t.forward(length)
             t.left(90)
-        t.up()
-        t.forward(sz * 2)
-        t.down()
+        t.penup()
+        t.forward(length * 2)
+        t.pendown()
 
-wn = turtle.Screen()
-wn.bgcolor("lightgreen")
+def main():
+    wn = turtle.Screen()
+    wn.bgcolor("blue")
 
-sz = 20
-border = 40
+    length = 20
 
-alex = turtle.Turtle()
-alex.color("pink")
-alex.pensize(3)
+    alex = turtle.Turtle()
+    alex.color("yellow")
+    alex.pensize(3)
 
-drawSquare(alex,sz)
+    draw_square(alex,length)
 
-wn.exitonclick()
+    wn.exitonclick()
+
+if __name__ == "__main__":
+    main()
