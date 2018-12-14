@@ -6,7 +6,9 @@ def apply_rules(l_side):
     if l_side == "F":
         r_side = "FF"
     elif l_side == "X":
-        r_side = "W--FXF++FXF++FXF--"
+        r_side = "--FXF++FXF++FXF--"
+        # # use to show affects of modifying rules
+        # r_side = "W--FXF++FXF++FXF--"
     else:
         r_side = l_side
     return r_side
@@ -37,10 +39,11 @@ def draw_L_system(t, inst, angle, distance):
             t.right(angle)
         elif char == "-":
             t.left(angle)
-        elif char == "W":
-            t.color("red")
-            t.stamp()
-            t.color("black")
+        # # use if customizing rules to include "W"
+        # elif char == "W":
+        #     t.color("red")
+        #     t.stamp()
+        #     t.color("black")
 
 def main():
 
