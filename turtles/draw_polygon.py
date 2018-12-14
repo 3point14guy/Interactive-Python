@@ -7,13 +7,17 @@ def draw_poly(t, num_sides, side_length):
         t.forward(side_length)
         t.left(360/num_sides)
 
-wn = turtle.Screen()
-wn.bgcolor("purple")
+def main():
+    wn = turtle.Screen()
+    wn.bgcolor("purple")
 
-tess = turtle.Turtle()
-tess.color('orange')
-tess.pensize(3)
+    tess = turtle.Turtle()
+    tess.color('orange')
+    tess.pensize(3)
 
-draw_poly(tess, 8, 50)
+    draw_poly(tess, 8, 50)
 
-wn.exitonclick()
+    wn.exitonclick()
+
+if __name__ == "__main__":
+    main()
