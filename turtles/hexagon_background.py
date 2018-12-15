@@ -1,33 +1,10 @@
 import turtle
-import peano
-
 
 t = turtle.Turtle()
 t.tracer(False)
 t.hideturtle()
 wn = turtle.Screen()
 
-def folded_code():
-    # # positioning to line up hexagon around paneo curve
-    # t.up()
-    # t.goto(3, 11)
-    # t.down()
-    # t.right(149)
-
-    # # draw_poly takes turtle, number of sides, and side length arguements
-    # polygon.draw_poly(t, 6, 98)
-
-    # # create_L_system takes number of iterations, and an axiom
-    # inst = paneo.create_L_system(3, "FX")
-    #
-    # t.up()
-    # t.home()
-    # t.down()
-    #
-    # # draw_L_system takes turtle, instructions, angle and line length
-    # paneo.draw_L_system(t, inst, 60, 8)
-    # t.home()
-    print("")
 
 def draw_polygon(t, num_sides, side_length):
     global q, next_start
@@ -57,14 +34,13 @@ def max_min_coors(vertecies):
 
     next_x = abs(max_x - min_x) + (vertecies[1][0])
     next_y = abs(max_y - min_y) + (vertecies[1][1])
-    # print(next_x, next_y)
     return next_x, next_y
 
 def make_row():
     global q
     while t.pos()[0] < (wn.window_width() / 2):
         t.begin_poly()
-        draw_polygon(t, 12, 50)
+        draw_polygon(t, 6, 35)
         t.end_poly()
         vertecies = t.get_poly()
         y = vertecies[1][1]
@@ -75,8 +51,6 @@ def make_row():
         q += 1
         make_row()
         y = round(vertecies[4][1], 1)
-
-
         return y
 
 
@@ -90,7 +64,7 @@ def stack_rows(start_x):
 
 
 
-# def fill_columns():
+
 next_start = []
 q = 0
 start_x = -(wn.window_width() / 2)
