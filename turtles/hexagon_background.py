@@ -1,5 +1,5 @@
 import turtle
-import paneo
+import peano
 
 
 t = turtle.Turtle()
@@ -30,10 +30,12 @@ def folded_code():
     print("")
 
 def draw_polygon(t, num_sides, side_length):
-
+    global q, next_start
     for i in range(num_sides):
         t.forward(side_length)
         t.left(360/num_sides)
+        if i == 1 and q == 0:
+            next_start = t.pos()
 
 def max_min_coors(vertecies):
     max_x, max_y, min_x, min_y = 0, 0, 0, 0
@@ -59,40 +61,48 @@ def max_min_coors(vertecies):
     return next_x, next_y
 
 def make_row():
+    global q
     while t.pos()[0] < (wn.window_width() / 2):
         t.begin_poly()
-        draw_polygon(t, 6, 50)
+        draw_polygon(t, 12, 50)
         t.end_poly()
         vertecies = t.get_poly()
-        # print(vertecies)
         y = vertecies[1][1]
         next_x, next_y = max_min_coors(vertecies)
         t.up()
         t.goto(next_x, y)
         t.down()
+        q += 1
         make_row()
         y = round(vertecies[4][1], 1)
-        next_start = vertecies[2]
-        return y, next_start
+
+
+        return y
 
 
 def stack_rows(start_x):
-    y, next_start = make_row()
+    y = make_row()
     t.up()
     t.goto(start_x, y)
     t.down()
     while t.pos()[1] < (wn.window_height() / 2):
         stack_rows(start_x)
 
+
+
 # def fill_columns():
-
-
+next_start = []
+q = 0
 start_x = -(wn.window_width() / 2)
 start_y = -(wn.window_height() / 2)
 t.up()
 t.goto(start_x, start_y)
 t.down()
 stack_rows(start_x)
-
+t.up()
+t.goto(next_start)
+t.down()
+stack_rows(next_start[0])
+print(q)
 wn.update()
 wn.exitonclick()
