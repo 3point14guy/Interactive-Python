@@ -13,17 +13,19 @@ def find_object_dimensions(vertecies):
     global x, y
     max_x, max_y, min_x, min_y = 0, 0, 0, 0
     for j, coor in enumerate(vertecies):
-        if abs(coor[0]) > abs(max_x):
+        if j ==0:
             max_x = coor[0]
-        if abs(coor[1]) > abs(max_y):
             max_y = coor[1]
-        if j == 0:
-            min_x = abs(coor[0])
-            min_y = abs(coor[1])
+            min_x = (coor[0])
+            min_y = (coor[1])
         else:
-            if abs(coor[0]) < abs(min_x):
+            if (coor[0]) > (max_x):
+                max_x = coor[0]
+            if (coor[1]) > (max_y):
+                max_y = coor[1]
+            if (coor[0]) < (min_x):
                 min_x = coor[0]
-            if abs(coor[1]) < abs(min_y):
+            if (coor[1]) < (min_y):
                 min_y = coor[1]
 
     shift_x = abs(max_x - min_x) + 20
