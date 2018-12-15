@@ -1,5 +1,10 @@
 import turtle
 
+i = 6
+wn = turtle.Screen()
+wn.bgcolor("black")
+# wn.bgcolor("yellow")
+
 def apply_rules(l_side):
     r_side = ""
     if l_side == "X":
@@ -19,7 +24,7 @@ def process_str(old_str):
 def create_L_system(iters, axiom):
     start_str = axiom
     end_str = ""
-    for i in range(iters):
+    for j in range(iters):
         end_str = process_str(start_str)
         start_str = end_str
     return end_str
@@ -35,17 +40,48 @@ def draw_L_system(t, inst, angle, distance):
         elif char == "-":
             t.left(angle)
 
-def main():
+def go():
+    global i
+    main(i)
+    i -= 1
+
+def color_picker(i):
+    colors = ["orange", "purple", "yellow", "red", "green", "blue"]
+    color = ""
+    for j, col in enumerate(colors):
+        if i == j + 1:
+            color = col
+    return color
+
+# show generations stepwise
+def main(i):
     t = turtle.Turtle()
+    t.tracer(False)
     t.speed(0)
-    wn = turtle.Screen()
+    t.width(2)
+    t.hideturtle()
     t.penup()
     t.goto(200, 200)
     t.pendown()
-    inst = create_L_system(4, "FX")
+    inst = create_L_system(i, "FX")
+    t.color(color_picker(i))
     draw_L_system(t, inst, 60, 5)
+    wn.update()
 
+wn.onkey(go, "space")
+wn.listen()
 
-    wn.exitonclick()
+# # draw out 3 generations
+# def main():
+#     t = turtle.Turtle()
+#     t.speed(0)
+#     t.width(3)
+#     t.hideturtle()
+#     t.penup()
+#     t.goto(0, 200)
+#     t.pendown()
+#     inst = create_L_system(3, "FX")
+#     draw_L_system(t, inst, 60, 10)
 
-main()
+# main()
+wn.exitonclick()
