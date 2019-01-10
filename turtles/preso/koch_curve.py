@@ -43,7 +43,7 @@ def main():
     # inst = create_L_system(3, "+F--F--F")   # create the string for the snowflake
     t = turtle.Turtle()  # create a turtle object
     # setting tracer to false will just generate final picture
-    turtle.tracer(False)
+    # turtle.tracer(False)
     # creates an environment for the turtle to "live"
     wn = turtle.Screen()
 
@@ -51,10 +51,10 @@ def main():
     t.up()
     t.back(200)
     t.down()
-    t.speed(9)
+    t.speed(0)
     draw_L_system(t, inst, 60, 5)      # draw the picture
-                                    # angle 60, segment length 5
-    turtle.update()
+                                # angle 60, segment length 5
+    # turtle.update()
     wn.exitonclick()
 
 main()

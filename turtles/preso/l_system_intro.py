@@ -1,4 +1,5 @@
 def apply_rules(left_side_char):
+    """Applies rules to each character in the axiom."""
     # each character is passed from process string to be acted on
     right_side_char = ""
     if left_side_char == 'A':
@@ -12,6 +13,7 @@ def apply_rules(left_side_char):
 
 
 def process_string(old_str):
+    """Builds new axiom for a single generation/iteration."""
     # accumulator
     new_string = ""
     # go over each character in our axiom
@@ -23,6 +25,7 @@ def process_string(old_str):
 
 
 def create_L_system(num_of_iterations, axiom):
+    """Applies rules to axiom for n number of iterations."""
     #bc we will use the end result for the start in each successive iteration, we will declare and initialize start and end variables
     start_string = axiom
     end_string = ""

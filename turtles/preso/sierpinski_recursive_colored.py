@@ -18,7 +18,7 @@ def get_mid(p1, p2):
 def sierpinski(points, iters, t):
     colormap = ['blue','red','green','white','yellow',
                 'violet','orange']
-    # time.sleep(3)
+    time.sleep(2)
     draw_triangle(points, colormap[iters], t)
     # base case
     if iters > 0:
@@ -41,10 +41,10 @@ def main():
    t = turtle.Turtle()
    t.speed(1)
    wn = turtle.Screen()
-   # turtle.tracer(False)
+   turtle.tracer(False)
    start_points = [[-200,-100], [0,200], [200,-100]]
    sierpinski(start_points, 5, t)
-   # turtle.update()
+   turtle.update()
    wn.exitonclick()
 
 
